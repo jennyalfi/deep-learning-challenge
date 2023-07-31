@@ -28,49 +28,61 @@ https://static.bc-edx.com/data/dl-1-2/m21/lms/starter/charity_data.csv
 
 ### Step 3: Optimize the Model
 
-## Analysis: 
-The purpose of this analysis is to review what parameters we used in our model and the results received.
+## Analysis Overview: 
+The purpose of this project was to use a neural network deep learning model with our dataset to see how well this model can predict successful applicants. 
 
-Results: Using bulleted lists and images to support your answers, address the following questions:
+## Results: 
 
-Data Preprocessing
+### Data Preprocessing
 
-What variable(s) are the target(s) for your model?
-What variable(s) are the features for your model?
-What variable(s) should be removed from the input data because they are neither targets nor features?
-Compiling, Training, and Evaluating the Model
+Our y variable and target for this model is the IS_SUCCESSFUL column.
 
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Were you able to achieve the target model performance?
-What steps did you take in your attempts to increase model performance?
-Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
+Our X variables and features for this model are:
+* APPLICATION_TYPE
+* AFFILIATION
+* CLASSIFICATION
+* USE_CASE
+* ORGANIZATION
+* STATUS
+* INCOME_AMT
+* SPECIAL_CONSIDERATIONS
+* ASK_AMT
 
-## Results
+The identification variables, EIN and NAME, were removed from the input data because they are neither targets nor features.
+
+### Compiling, Training, and Evaluating the Model
+
+The reLU activation function was selected for the first hidden layer since this is most effective for positive nonlinear input data for classification. I used Sigmoid activation for the output layer since we are performing a binary classification. I followed the general rule of using 2-3 times as many neurons as there are input features. I started with 100 epochs and did not increase as I could see that the later epochs didn't improve model accuracy.
+
 First pass:
-1st hidden layer nodes = 80
-2nd hidden layer nodes = 30
+1st hidden layer neurons = 80
+2nd hidden layer neurons = 30
 epochs = 100
-loss: 0.5550 - accuracy: 0.7254
-Saved as AlphabetSoupCharity
+accuracy: 0.7254
 
 First Optimization Attempt:
-1st hidden layer nodes = 132 (increased to 3x's input)
-2nd hidden layer nodes = 66
+1st hidden layer neurons = 132 (increased to 3x's input)
+2nd hidden layer neurons = 66 (increased to 66, half of first layer)
 epochs = 100
-loss: 0.5621 - accuracy: 0.7264 (Accuracy increased slightly)
-Saved as AlphabetSoupCharity_Optimization1
+accuracy: 0.7264 (Accuracy increased slightly)
 
 Second Optimization Attempt:
-1st hidden layer nodes = 132 (3x's input)
-2nd hidden layer nodes = 100 (increased to 100)
-epochs = 80 (reduced to 80)
-loss: 0.5607 - accuracy: 0.7257
-Saved as AlphabetSoupCharity_Optimization2
+1st hidden layer neurons = 132 (3x's input)
+2nd hidden layer neurons = 100 (increased to 100)
+epochs = 80 (reduced from initial 100)
+accuracy: 0.7257
 
 Third Optimization Attempt:
-1st hidden layer nodes = 132 (3x's input)
-2nd hidden layer nodes = 66
-3rd hidden layer nodes = 33 (Added 3rd hidden layer)
+1st hidden layer neurons = 132 (3x's input)
+2nd hidden layer neurons = 66
+3rd hidden layer neurons = 33 (Added 3rd hidden layer)
 epochs = 100
-loss: 0.5682 - accuracy: 0.7262
+accuracy: 0.7262
+
+
+I did not achieve higher than 75% accuracy for this model after several attempts and the accuracy changed little regardless of the changes made. I tried changing the binning for rare occurances and adjusted the hyperparameters, such as adding neurons, adding another hidden layer, and reducing the epochs. 
+
+## Summary: 
+This binary classification neural network machine learning model was designed to help predict which applicants have the best chance of success. The goal was to try to achieve accuracy above 75%, but this was not attained after several optimization attempts. Each attempt made little difference in the accuracy of the model. The highest accuracy I attained was on the first optimization attempt with 72.64% accuracy. To improve this deep learning model we could try performing additional preprocessing of the data to see if that helps to improve accuracy. We could also try a regression model like Random Forest which is good for nonlinear data and is capable of both regression and classification.
+
 
