@@ -55,29 +55,29 @@ The identification variables, EIN and NAME, were removed from the input data bec
 The reLU activation function was selected for the first hidden layer since this is most effective for positive nonlinear input data for classification. I used Sigmoid activation for the output layer since we are performing a binary classification. I followed the general rule of using 2-3 times as many neurons as there are input features. I started with 100 epochs and did not increase as I could see that the later epochs didn't improve model accuracy.
 
 First pass:
-1st hidden layer neurons = 80
-2nd hidden layer neurons = 30
-epochs = 100
-accuracy: 0.7254
+* 1st hidden layer neurons = 80
+* 2nd hidden layer neurons = 30
+* epochs = 100
+* accuracy: 0.7254
 
 First Optimization Attempt:
-1st hidden layer neurons = 132 (increased to 3x's input)
-2nd hidden layer neurons = 66 (increased to 66, half of first layer)
-epochs = 100
-accuracy: 0.7264 (Accuracy increased slightly)
+* 1st hidden layer neurons = 132 (increased to 3x's input)
+* 2nd hidden layer neurons = 66 (increased to 66, half of first layer)
+* epochs = 100
+* accuracy: 0.7264 (Accuracy increased slightly)
 
 Second Optimization Attempt:
-1st hidden layer neurons = 132 (3x's input)
-2nd hidden layer neurons = 100 (increased to 100)
-epochs = 80 (reduced from initial 100)
-accuracy: 0.7257
+* 1st hidden layer neurons = 132 (3x's input)
+* 2nd hidden layer neurons = 100 (increased to 100)
+* epochs = 80 (reduced from initial 100)
+* accuracy: 0.7257
 
 Third Optimization Attempt:
-1st hidden layer neurons = 132 (3x's input)
-2nd hidden layer neurons = 66
-3rd hidden layer neurons = 33 (Added 3rd hidden layer)
-epochs = 100
-accuracy: 0.7262
+* 1st hidden layer neurons = 132 (3x's input)
+* 2nd hidden layer neurons = 66
+* 3rd hidden layer neurons = 33 (Added 3rd hidden layer)
+* epochs = 100
+* accuracy: 0.7262
 
 
 I did not achieve higher than 75% accuracy for this model after several attempts and the accuracy changed little regardless of the changes made. I tried changing the binning for rare occurances and adjusted the hyperparameters, such as adding neurons, adding another hidden layer, and reducing the epochs. 
